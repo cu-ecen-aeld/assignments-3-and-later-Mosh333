@@ -1,0 +1,129 @@
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-1-Mosh333/finder-app$ ./finder-test.sh
+Using default value AELD_IS_FUN for string to write
+Using default value 10 for number of files to write
+Writing 10 files containing string AELD_IS_FUN to /tmp/aeld-data
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3331.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3332.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3333.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3334.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3335.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3336.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3337.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3338.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3339.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh33310.txt created successfully with content: AELD_IS_FUN
+The number of files are 10 and the number of matching lines are 10
+success
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-1-Mosh333/finder-app$ cd ..
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-1-Mosh333$ ./full-test.sh
+starting test with SKIP_BUILD="" and DO_VALIDATE=""
+Running test with user moshiur
+-- Generating ;/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1/Test_hello_Runner.c;/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1/Test_assignment_validate_Runner.c;/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/../student-test/assignment1/Test_validate_username_Runner.c from test/assignment1/Test_hello.c;test/assignment1/Test_assignment_validate.c;../student-test/assignment1/Test_validate_username.c
+-- Building executable including ;/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1/Test_hello_Runner.c;/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1/Test_assignment_validate_Runner.c;/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/../student-test/assignment1/Test_validate_username_Runner.c test/assignment1/Test_hello.c;test/assignment1/Test_assignment_validate.c;../student-test/assignment1/Test_validate_username.c and ../examples/autotest-validate/autotest-validate.c
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/build
+[  8%] Building C object assignment-autotest/Unity/src/CMakeFiles/unity.dir/unity.c.o
+[ 16%] Linking C static library libunity.a
+[ 16%] Built target unity
+[ 25%] Generating ../../assignment-autotest/test/assignment1/Test_hello_Runner.c, ../../assignment-autotest/test/assignment1/Test_assignment_validate_Runner.c, ../../student-test/assignment1/Test_validate_username_Runner.c, ../../assignment-autotest/test/unity_runner.c
+Test files for auto dependency generation test/assignment1/Test_hello.c test/assignment1/Test_assignment_validate.c ../student-test/assignment1/Test_validate_username.c
+Autogenerating runner for test/assignment1/Test_hello.c
+Autogenerating runner for test/assignment1/Test_assignment_validate.c
+Autogenerating runner for ../student-test/assignment1/Test_validate_username.c
+Autogenerating test/unity_runner.c
+Scanning dependencies of target assignment-autotest
+[ 33%] Building C object assignment-autotest/CMakeFiles/assignment-autotest.dir/test/assignment1/Test_hello.c.o
+[ 41%] Building C object assignment-autotest/CMakeFiles/assignment-autotest.dir/test/assignment1/Test_assignment_validate.c.o
+[ 50%] Building C object assignment-autotest/CMakeFiles/assignment-autotest.dir/__/student-test/assignment1/Test_validate_username.c.o
+[ 58%] Building C object assignment-autotest/CMakeFiles/assignment-autotest.dir/test/assignment1/Test_hello_Runner.c.o
+[ 66%] Building C object assignment-autotest/CMakeFiles/assignment-autotest.dir/test/assignment1/Test_assignment_validate_Runner.c.o
+[ 75%] Building C object assignment-autotest/CMakeFiles/assignment-autotest.dir/__/student-test/assignment1/Test_validate_username_Runner.c.o
+[ 83%] Building C object assignment-autotest/CMakeFiles/assignment-autotest.dir/__/examples/autotest-validate/autotest-validate.c.o
+[ 91%] Building C object assignment-autotest/CMakeFiles/assignment-autotest.dir/test/unity_runner.c.o
+[100%] Linking C executable assignment-autotest
+[100%] Built target assignment-autotest
+/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1/Test_hello.c:6:test_hello:INFO: Hello!  Your unity setup is working!
+/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1/Test_hello.c:4:test_hello:PASS
+
+-----------------------
+1 Tests 0 Failures 0 Ignored 
+OK
+/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1/Test_assignment_validate.c:9:test_assignment_validate:PASS
+
+-----------------------
+1 Tests 0 Failures 0 Ignored 
+OK
+Read Mosh333 from conf/username.txt
+/home/moshiur/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/../student-test/assignment1/Test_validate_username.c:15:test_validate_my_username:PASS
+
+-----------------------
+1 Tests 0 Failures 0 Ignored 
+OK
+Executing assignment test script
+~/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1 ~/Documents/Github/ecea5305/assignment-1-Mosh333
+~/Documents/Github/ecea5305/assignment-1-Mosh333/finder-app ~/Documents/Github/ecea5305/assignment-1-Mosh333/assignment-autotest/test/assignment1 ~/Documents/Github/ecea5305/assignment-1-Mosh333
+Error: Must provide exactly two arguments.
+Usage: ./writer.sh <writefile> <writestr>
+Error: Must provide exactly two arguments.
+Usage: ./writer.sh <writefile> <writestr>
+Using default value AELD_IS_FUN for string to write
+Using default value 10 for number of files to write
+Writing 10 files containing string AELD_IS_FUN to /tmp/aeld-data
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3331.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3332.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3333.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3334.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3335.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3336.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3337.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3338.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh3339.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data
+File /tmp/aeld-data/Mosh33310.txt created successfully with content: AELD_IS_FUN
+The number of files are 10 and the number of matching lines are 10
+success
+Writing 10 files containing string AELD_IS_FUN to /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3331.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3332.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3333.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3334.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3335.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3336.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3337.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3338.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh3339.txt created successfully with content: AELD_IS_FUN
+drwxrwxr-x 2 moshiur moshiur 4096 Jul 28 00:22 /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W
+File /tmp/aeld-data/idnPGyP2vkWLQhJSrf3hDQST5zGQJg4W/Mosh33310.txt created successfully with content: AELD_IS_FUN
+The number of files are 10 and the number of matching lines are 10
+success
+Test of assignment assignment1 complete with success
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-1-Mosh333$ 
