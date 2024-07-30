@@ -28,12 +28,33 @@ int main(int argc, char *argv[]) {
     const char *writestr = argv[2];
     
     // Open the file in create mode for writing
+    // We must provide the O_TRUNC flag to ensure the overwriting of the file if it already exists
     int fd = open(writefile, O_CREAT|O_WRONLY|O_TRUNC, 0644);
     if(fd==-1){
-        syslog(LOG_ERR, "Error: Could not write to file %s with open(): %s", writefile, strerror(errno));
+        syslog(LOG_ERR, "Error: Could not open file %s with open(): %s", writefile, strerror(errno));
+        //close(fd);  //We can't close something that couldn't open in the first place
+        exit(EXIT_FAILURE);
+    }
+
+    // Write the content to file
+    ssize_t write_bytes = write(fd, writestr, strlen(writestr));
+    if(write_bytes==-1){
+        syslog(LOG_ERR, "Error: Could not write to file %s with write(): %s", writefile, strerror(errno));
         close(fd);
         exit(EXIT_FAILURE);
     }
+
+    // We got here, so a successful write
+    syslog(LOG_DEBUG, "Success: Wrote %s to file named: %s", writestr, writefile);
+
+    // Close the file gracefully
+    int close_val = close(fd);
+    if(close_val==-1){
+        syslog(LOG_ERR, "Error: Could not close file %s: %s", writefile, strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+
+    closelog();
 
     return EXIT_SUCCESS;
 }
