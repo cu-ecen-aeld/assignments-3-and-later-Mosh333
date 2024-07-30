@@ -1,0 +1,27 @@
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-2-Mosh333$ make clean
+rm -f finder-app/writer finder-app/writer.o
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-2-Mosh333$ ls -l ./finder-app/
+total 16
+lrwxrwxrwx 1 moshiur moshiur    7 Jul 29 01:45 conf -> ../conf
+-rwxrwxr-x 1 moshiur moshiur  708 Jul 29 01:45 finder.sh
+-rwxrwxr-x 1 moshiur moshiur 1678 Jul 29 01:45 finder-test.sh
+-rw-rw-r-- 1 moshiur moshiur 1982 Jul 30 02:15 writer.c
+-rwxrwxr-x 1 moshiur moshiur 1196 Jul 29 01:45 writer.sh
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-2-Mosh333$ make CROSS_COMPILE=aarch64-none-linux-gnu-
+aarch64-none-linux-gnu-gcc -g -Wall -c finder-app/writer.c -o finder-app/writer.o
+aarch64-none-linux-gnu-gcc -g -Wall -o finder-app/writer finder-app/writer.o
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-2-Mosh333$ ls -l ./finder-app/
+total 44
+lrwxrwxrwx 1 moshiur moshiur     7 Jul 29 01:45 conf -> ../conf
+-rwxrwxr-x 1 moshiur moshiur   708 Jul 29 01:45 finder.sh
+-rwxrwxr-x 1 moshiur moshiur  1678 Jul 29 01:45 finder-test.sh
+-rwxrwxr-x 1 moshiur moshiur 16968 Jul 30 03:33 writer
+-rw-rw-r-- 1 moshiur moshiur  1982 Jul 30 02:15 writer.c
+-rw-rw-r-- 1 moshiur moshiur  6040 Jul 30 03:33 writer.o
+-rwxrwxr-x 1 moshiur moshiur  1196 Jul 29 01:45 writer.sh
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-2-Mosh333$ file ./finder-app/writer.o
+./finder-app/writer.o: ELF 64-bit LSB relocatable, ARM aarch64, version 1 (SYSV), with debug_info, not stripped
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-2-Mosh333$ file ./finder-app/writer
+./finder-app/writer: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, for GNU/Linux 3.7.0, with debug_info, not stripped
+moshiur@Ubuntu:~/Documents/Github/ecea5305/assignment-2-Mosh333$ file ./finder-app/writer.c
+./finder-app/writer.c: C source, ASCII text
