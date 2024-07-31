@@ -50,10 +50,8 @@ then
 fi
 
 echo "Removing the old writer utility and compiling as a native application"
-cd ..
 make clean
 make
-cd finder-app
 
 for i in $( seq 1 $NUMFILES)
 do

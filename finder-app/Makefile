@@ -33,10 +33,10 @@ CC = $(CROSS_COMPILE)gcc
 CFLAGS = -g -Wall
 
 # Name of the output executable.
-TARGET = finder-app/writer
+TARGET = writer
 
 # Object file required to build the target executable.
-OBJ = finder-app/writer.o
+OBJ = writer.o
 
 # Default target: builds the executable.
 all: $(TARGET)
@@ -46,8 +46,8 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
 
 # Rule to compile the source file into an object file.
-$(OBJ): finder-app/writer.c
-	$(CC) $(CFLAGS) -c finder-app/writer.c -o finder-app/writer.o
+$(OBJ): writer.c
+	$(CC) $(CFLAGS) -c writer.c -o writer.o
 
 # Rule to clean up build artifacts (executable and object files).
 clean:
