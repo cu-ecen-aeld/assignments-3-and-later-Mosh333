@@ -1,4 +1,9 @@
 #include "systemcalls.h"
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <stdbool.h>
+#include <fcntl.h>
+#include <unistd.h>  // For fork, execv, close, dup2
 
 /**
  * @param cmd the command to execute with system()
@@ -16,8 +21,26 @@ bool do_system(const char *cmd)
  *   and return a boolean true if the system() call completed with success
  *   or false() if it returned a failure
 */
+    printf("Executing command: %s\n", cmd);
+    int status = system(cmd);
+    if(status==-1){
+        return false;
+    }
 
-    return true;
+    if (WIFEXITED(status)) {
+        printf("Exited with status: %d\n", WEXITSTATUS(status));
+    } else {
+        printf("Child process did not exit normally.\n");
+    }
+
+    //https://www.gnu.org/software/libc/manual/html_node/Process-Completion-Status.html
+    //man system, man exit, man waitpid
+    if(WIFEXITED(status) && WEXITSTATUS(status) == 0){
+        //confirm success as per "man system"
+        return true;
+    }
+
+    return false;
 }
 
 /**
@@ -58,10 +81,24 @@ bool do_exec(int count, ...)
  *   as second argument to the execv() command.
  *
 */
-
-    va_end(args);
-
-    return true;
+    int status;
+    pid_t pid = fork();
+    if(pid == -1){
+        // Fork failed
+        return false;
+    }
+    else if(pid == 0){
+        // Child process
+        execv(command[0], command);
+        // If execv returns, it must have failed
+        exit(1);
+    } else {
+        // Parent process
+        if(waitpid(pid, &status, 0) == -1){
+            return false;
+        }
+        return WEXITSTATUS(status) == 0;
+    }
 }
 
 /**
@@ -92,8 +129,54 @@ bool do_exec_redirect(const char *outputfile, int count, ...)
  *   The rest of the behaviour is same as do_exec()
  *
 */
+    int fd = open(outputfile, O_WRONLY | O_TRUNC | O_CREAT, 0644);
+    if (fd < 0) {
+        perror("open");
+        va_end(args);
+        return false;
+    }
 
-    va_end(args);
+    pid_t kidpid = fork();
+    if (kidpid == -1) {
+        // Fork failed
+        perror("fork");
+        close(fd);
+        va_end(args);
+        return false;
+    }
 
-    return true;
+    if (kidpid == 0) {
+        // Child process
+        if (dup2(fd, 1) < 0) {
+            // Redirect stdout to the file
+            perror("dup2");
+            close(fd);
+            va_end(args);
+            exit(1);
+        }
+        close(fd);
+        execv(command[0], command);
+        // If execv returns, it must have failed
+        perror("execv");
+        return false;
+    } else {
+        // Parent process
+        close(fd);
+        int status;
+        if (waitpid(kidpid, &status, 0) == -1) {
+            // waitpid failed
+            perror("waitpid");
+            va_end(args);
+            return false;
+        }
+
+        va_end(args);
+
+        // Check if the child process terminated normally and its exit status is 0
+        if (WIFEXITED(status) && WEXITSTATUS(status) == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
