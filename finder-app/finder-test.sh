@@ -8,7 +8,12 @@ set -u
 NUMFILES=10
 WRITESTR=AELD_IS_FUN
 WRITEDIR=/tmp/aeld-data
-username=$(cat conf/username.txt)
+#username=$(cat conf/username.txt)
+SCRIPT_PATH=$(dirname $0) #buildroot tip video
+FINDER_CONF_PATH="/etc/finder-app/conf" #assignment guideline
+#assignment 4 part 2
+username=$(cat ${FINDER_CONF_PATH}/username.txt)
+
 
 if [ $# -lt 3 ]
 then
@@ -32,7 +37,9 @@ echo "Writing ${NUMFILES} files containing string ${WRITESTR} to ${WRITEDIR}"
 rm -rf "${WRITEDIR}"
 
 # create $WRITEDIR if not assignment1
-assignment=`cat conf/assignment.txt`
+#assignment=`cat conf/assignment.txt`
+#assignment 4 part 2
+assignment=`cat ${FINDER_CONF_PATH}/assignment.txt`
 
 if [ $assignment != 'assignment1' ]
 then
@@ -55,10 +62,14 @@ fi
 
 for i in $( seq 1 $NUMFILES)
 do
-	./writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
+	# ./writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
+	#assignment 4 part 2
+	${SCRIPT_PATH}/writer "$WRITEDIR/${username}$i.txt" "$WRITESTR"
 done
 
-OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
+#OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
+OUTPUTSTRING=$(${SCRIPT_PATH}/finder.sh "$WRITEDIR" "$WRITESTR")
+echo "${OUTPUTSTRING}" > /tmp/assignment4-result.txt
 
 # remove temporary directories
 rm -rf /tmp/aeld-data
