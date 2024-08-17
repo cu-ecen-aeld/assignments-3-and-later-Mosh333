@@ -1,0 +1,22 @@
+#!/bin/sh
+#Borrowed template from professor's lecture video on Linux System Initialization @ 3:30
+
+case "$1" in
+start)
+    echo "Starting aesdsocket"
+    # man start-stop-daemon -> -S flag states:
+    # "Any arguments given after -- on the command line are passed unmodified to the program being started."
+    start-stop-daemon -S -n aesdsocket -a /usr/bin/aesdsocket -- -d
+    ;;
+stop)
+    # -K to stop the process
+    echo "Stopping aesdsocket"
+    start-stop-daemon -K -n aesdsocket
+    ;;
+*)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
