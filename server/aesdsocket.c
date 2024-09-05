@@ -42,7 +42,7 @@ struct thread_node_data {
     pthread_t thread_id;
     bool thread_work_completion;
     int client_sockfd;
-    SLIST_ENTRY(thread_node_data) conn_nodes;  // Manage threads with linked list
+    SLIST_ENTRY(thread_node_data) conn_node;  // Manage threads with linked list
 };
 
 // Declare and initialize the head of the singly linked list
@@ -63,7 +63,7 @@ void free_client_threads_in_list(){
         thread_data = SLIST_FIRST(&thread_list_head);
         thread_data->thread_work_completion = true;
         pthread_join(thread_data->thread_id, NULL);
-        SLIST_REMOVE_HEAD(&thread_list_head, conn_nodes);
+        SLIST_REMOVE_HEAD(&thread_list_head, conn_node);
         free(thread_data);
     }
     pthread_mutex_destroy(&file_mutex);
@@ -347,7 +347,7 @@ int main(int argc, char **argv)
         node->thread_work_completion = false;
         node->client_sockfd = client_sockfd;
         // Insert the new thread node into the singly linked list
-        SLIST_INSERT_HEAD(&thread_list_head, node, conn_nodes);
+        SLIST_INSERT_HEAD(&thread_list_head, node, conn_node);
 
         printf("About to create new thread!\n");
         // Create a new thread to handle the connection
