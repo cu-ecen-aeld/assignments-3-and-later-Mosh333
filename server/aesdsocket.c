@@ -331,9 +331,11 @@ int main(int argc, char **argv)
         }
 
         // Log the accepted connection
-        char *client_addr_info = inet_ntoa(client_addr.sin_addr);
-        syslog(LOG_INFO, "Accepted connection from %s", client_addr_info);
-        printf("Server: got connection from %s\n", client_addr_info);
+        // char *client_addr_info = inet_ntoa(client_addr.sin_addr);
+        char client_ip[INET_ADDRSTRLEN];
+        inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, INET_ADDRSTRLEN);
+        syslog(LOG_INFO, "Accepted connection from %s", client_ip);
+        printf("Server: got connection from %s\n", client_ip);
 
         // Allocate memory for thread data
         struct thread_node_data *node = malloc(sizeof(struct thread_node_data));
