@@ -1,23 +1,35 @@
 
 # Makefile for /server dir
-# Keeping it simple for this time around
+# Flexible for native and cross-compilation
 
-CC ?= $(CROSS_COMPILE)gcc
-CFLAGS ?= -Wall -Wextra -Werror -g
-LDFLAGS ?= -lpthread -lrt
-INCLUDES ?=
-TARGET ?= aesdsocket
+# Compiler and flags
+CROSS_COMPILE ?=
+CC := $(CROSS_COMPILE)gcc
+CFLAGS := -Wall -Wextra -Werror -g
+LIB := -lpthread -lrt
+LDFLAGS ?=
+INCLUDES :=
+
+# Target and source definitions
+TARGET := aesdsocket
+SRCS := aesdsocket.c
+OBJS := $(SRCS:.c=.o)
 
 # Default target
-default: $(TARGET)
+all: $(TARGET)
 
-# Build target
-$(TARGET): *.c
-	$(CC) $(CFLAGS) $^ -o $@ $(INCLUDES) $(LDFLAGS)
+# Build the target application
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIB) $(LDFLAGS)
+
+# Compile source files into object files
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
 
 # Clean up build artifacts
 clean:
-	rm -f $(TARGET) *.o
+	rm -f $(TARGET) $(OBJS)
 
-# Declare 'default' and 'clean' as phony targets
-.PHONY: default clean
+# Declare 'all' and 'clean' as phony targets
+.PHONY: all clean
+
