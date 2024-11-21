@@ -2,16 +2,22 @@
 # Makefile for /server dir
 # Keeping it simple for this time around
 
-CC:=${CROSS_COMPILE}gcc
-CFLAGS = -Wall -Wextra -Werror -g
-LDFLAGS = -lpthread -lrt
+CC ?= $(CROSS_COMPILE)gcc
+CFLAGS ?= -Wall -Wextra -Werror -g
+LDFLAGS ?= -lpthread -lrt
+INCLUDES ?=
+TARGET ?= aesdsocket
 
-default: all
+# Default target
+default: $(TARGET)
 
-all:
-	${CC} -o aesdsocket *.c ${CFLAGS} ${LDFLAGS}
+# Build target
+$(TARGET): *.c
+	$(CC) $(CFLAGS) $^ -o $@ $(INCLUDES) $(LDFLAGS)
 
+# Clean up build artifacts
 clean:
-	rm -rf aesdsocket *.o *.elf *.map
+	rm -f $(TARGET) *.o
 
-.PHONY: all default clean
+# Declare 'default' and 'clean' as phony targets
+.PHONY: default clean
