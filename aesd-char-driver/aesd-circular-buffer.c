@@ -34,14 +34,14 @@ struct aesd_buffer_entry *aesd_circular_buffer_find_entry_offset_for_fpos(struct
     * TODO: implement per description
     */
 
+    size_t current_offset = 0;
+    size_t i = buffer->out_offs;
+    size_t count = 0;
+    
     // Check if the buffer is empty
     if (buffer->in_offs == buffer->out_offs && buffer->full != true) {
         return NULL; // Buffer is empty
     }
-
-    size_t current_offset = 0;
-    size_t i = buffer->out_offs;
-    size_t count = 0;
 
     // Search for the matching entry
     while (count < AESDCHAR_MAX_WRITE_OPERATIONS_SUPPORTED && 
