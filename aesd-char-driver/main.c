@@ -16,6 +16,7 @@
 #include <linux/printk.h>
 #include <linux/types.h>
 #include <linux/cdev.h>
+#include <linux/slab.h> //for kfree
 #include <linux/fs.h> // file_operations
 #include "aesdchar.h"
 int aesd_major =   0; // use dynamic major
@@ -50,10 +51,18 @@ int aesd_open(struct inode *inode, struct file *filp)
 
 int aesd_release(struct inode *inode, struct file *filp)
 {
+    // flexible function for handling cleanup tasks such as cleaning
+    // per-file state or resources
     PDEBUG("release");
     /**
      * TODO: handle release
      */
+
+    if (filp->private_data){
+        kfree(filp->private_data);
+        filp->private_data = NULL;
+    }
+
     return 0;
 }
 
