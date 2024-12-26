@@ -32,3 +32,10 @@ sudo cat /dev/aesdchar || echo "Read failed or not implemented yet"
 echo "Checking kernel logs..."
 dmesg | tail > dmesg_output.log
 cat dmesg_output.log
+
+
+echo "Running drivertest now"
+sudo /home/moshiur/Documents/Github/ecea5305/assignments-3-and-later-Mosh333/assignment-autotest/test/assignment8/drivertest.sh
+
+echo "Running sockettest now"
+sudo /home/moshiur/Documents/Github/ecea5305/assignments-3-and-later-Mosh333/assignment-autotest/test/assignment5/sockettest.sh
