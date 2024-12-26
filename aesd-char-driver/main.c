@@ -16,7 +16,7 @@
 #include <linux/printk.h>
 #include <linux/types.h>
 #include <linux/cdev.h>
-#include <linux/slab.h> //for kfree
+#include <linux/slab.h> //for kfree and kmalloc
 #include <linux/fs.h> // file_operations
 #include "aesdchar.h"
 int aesd_major =   0; // use dynamic major
@@ -81,10 +81,37 @@ ssize_t aesd_write(struct file *filp, const char __user *buf, size_t count,
                 loff_t *f_pos)
 {
     ssize_t retval = -ENOMEM;
-    PDEBUG("write %zu bytes with offset %lld",count,*f_pos);
+    PDEBUG("write %zu bytes with offset %lld\n",count,*f_pos);
+    PDEBUG("moshiur says write has been invoked!!!");
     /**
      * TODO: handle write
      */
+
+    char *kern_buf = NULL;
+
+    // Allocate memory for incoming data
+    kern_buf = kmalloc(count, GFP_KERNEL);
+    if (!kern_buf) {
+        PDEBUG("Failed to allocate memory with kmalloc\n");
+        return -ENOMEM; // Return error if allocation fails
+    }
+
+    // Copy data from user space
+    if (copy_from_user(kern_buf, buf, count)) {
+        PDEBUG("Error copying data from user space\n");
+        kfree(kern_buf); // Free memory in case of failure
+        return -EFAULT;  // Return -EFAULT
+    }
+
+    // Log copied data for verification
+    PDEBUG("Copied data: %.*s\n", (int)count, kern_buf);
+
+    // Free allocated memory (temporary, for testing only)
+    kfree(kern_buf);
+
+    // Return number of bytes written
+    retval = count;
+
     return retval;
 }
 struct file_operations aesd_fops = {
