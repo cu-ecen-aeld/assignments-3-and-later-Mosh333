@@ -28,10 +28,23 @@ struct aesd_dev aesd_device;
 
 int aesd_open(struct inode *inode, struct file *filp)
 {
+    // Approach 1 based on "Device Driver File Operations" lecture video
+    // handles multiple device opens
+    struct aesd_dev *aesd_device;
+    
     PDEBUG("open");
     /**
      * TODO: handle open
      */
+
+    aesd_device = container_of(inode->i_cdev, struct aesd_dev, cdev);
+    filp->private_data = aesd_device;   // way to pass context
+
+    // Approach 2, directly assign the global var device (a single device only)
+    // does not seem to work
+    // filp->private_data = &aesd_device;
+
+
     return 0;
 }
 
