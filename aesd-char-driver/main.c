@@ -70,10 +70,37 @@ ssize_t aesd_read(struct file *filp, char __user *buf, size_t count,
                 loff_t *f_pos)
 {
     ssize_t retval = 0;
+    struct aesd_dev *dev = filp->private_data;
+    struct aesd_buffer_entry *entry;
+    size_t entry_offset_byte_rtn;
+    size_t bytes_to_copy;
     PDEBUG("read %zu bytes with offset %lld",count,*f_pos);
     /**
      * TODO: handle read
      */
+
+    // Find the entry corresponding to the current file position
+    entry = aesd_circular_buffer_find_entry_offset_for_fpos(&dev->aesd_circular_buffer, *f_pos, &entry_offset_byte_rtn);
+    if (!entry) {
+        PDEBUG("No entry found for offset %lld\n", *f_pos);
+        return 0; // EOF
+    }
+
+    // Determine how many bytes to copy
+    bytes_to_copy = min(count, entry->size - entry_offset_byte_rtn);
+
+    // Copy to user space
+    if (copy_to_user(buf, entry->buffptr + entry_offset_byte_rtn, bytes_to_copy)) {
+        PDEBUG("Error copying data to user space\n");
+        return -EFAULT;
+    }
+
+    // Update file position
+    *f_pos += bytes_to_copy;
+    retval = bytes_to_copy;
+
+    PDEBUG("Read %zu bytes from entry\n", bytes_to_copy);
+
     return retval;
 }
 
@@ -81,13 +108,16 @@ ssize_t aesd_write(struct file *filp, const char __user *buf, size_t count,
                 loff_t *f_pos)
 {
     ssize_t retval = -ENOMEM;
+    struct aesd_dev *dev = filp->private_data;
+    struct aesd_buffer_entry new_entry;
+    char *kern_buf = NULL;
+    int i;
+    struct aesd_buffer_entry *entry;
     PDEBUG("write %zu bytes with offset %lld\n",count,*f_pos);
-    PDEBUG("moshiur says write has been invoked!!!");
+    PDEBUG("Test1 - moshiur!!!");
     /**
      * TODO: handle write
      */
-
-    char *kern_buf = NULL;
 
     // Allocate memory for incoming data
     kern_buf = kmalloc(count, GFP_KERNEL);
@@ -106,14 +136,35 @@ ssize_t aesd_write(struct file *filp, const char __user *buf, size_t count,
     // Log copied data for verification
     PDEBUG("Copied data: %.*s\n", (int)count, kern_buf);
 
+    // Set up the new entry
+    new_entry.buffptr = kern_buf;
+    new_entry.size = count;
+
+    // Add the new entry to the circular buffer
+    aesd_circular_buffer_add_entry(&dev->aesd_circular_buffer, &new_entry);
+
     // Free allocated memory (temporary, for testing only)
-    kfree(kern_buf);
+    // kfree(kern_buf);
+
+    // Log successful addition
+    PDEBUG("Added entry to circular buffer: %.*s\n", (int)count, kern_buf);
+
+    // Loop through the circular buffer and print its contents for debugging
+    PDEBUG("Current buffer contents:");
+    AESD_CIRCULAR_BUFFER_FOREACH(entry, &dev->aesd_circular_buffer, i) {
+        if (entry->buffptr != NULL) {
+            PDEBUG("Entry %d: %.*s (size: %zu)", i, (int)entry->size, entry->buffptr, entry->size);
+        } else {
+            PDEBUG("Entry %d: Empty", i);
+        }
+    }
 
     // Return number of bytes written
     retval = count;
 
     return retval;
 }
+
 struct file_operations aesd_fops = {
     .owner =    THIS_MODULE,
     .read =     aesd_read,
