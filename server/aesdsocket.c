@@ -21,7 +21,17 @@
 
 #define PORT 9000  // the port users will be connecting to
 #define BACKLOG 10   // how many pending connections queue will hold
-#define FILE_PATH "/var/tmp/aesdsocketdata"
+
+// default to 1 if not specified by Makefile
+#ifndef USE_AESD_CHAR_DEVICE
+    #define USE_AESD_CHAR_DEVICE 1
+#endif
+
+#if USE_AESD_CHAR_DEVICE
+    #define FILE_PATH "/dev/aesdchar"
+#else
+    #define FILE_PATH "/var/tmp/aesdsocketdata"
+#endif
 #define RECV_BUFFER_SIZE 512
 #define SEND_BUFFER_SIZE 512
 
@@ -84,9 +94,12 @@ void free_resources(){
     }
 
     // Cleanup and remove the file
+#ifndef USE_AESD_CHAR_DEVICE
+    // Cleanup and remove the file
     if (remove(FILE_PATH) != 0) {
         syslog(LOG_ERR, "Failed to remove file: %s", strerror(errno));
     }
+#endif
 
     pthread_cancel(timestamp_thread);
     pthread_join(timestamp_thread, NULL);
@@ -302,13 +315,15 @@ int main(int argc, char **argv)
         run_program_in_daemon_mode();
     }
 
-    printf("Create timestampe!\n");
-    // Create the timestamp thread
-    if (pthread_create(&timestamp_thread, NULL, timestamp_thread_func, NULL) != 0) {
-        syslog(LOG_ERR, "Failed to create timestamp thread: %s", strerror(errno));
-        free_resources();
-        return -1;
-    }
+    #ifndef USE_AESD_CHAR_DEVICE
+        printf("Create timestamp!\n");
+        // Create the timestamp thread
+        if (pthread_create(&timestamp_thread, NULL, timestamp_thread_func, NULL) != 0) {
+            syslog(LOG_ERR, "Failed to create timestamp thread: %s", strerror(errno));
+            free_resources();
+            return -1;
+        }
+    #endif
 
     // Listen for incoming connections
     if (listen(server_sockfd, BACKLOG) < 0) {

@@ -5,7 +5,10 @@
 # Compiler and flags
 CROSS_COMPILE ?=
 CC := $(CROSS_COMPILE)gcc
-CFLAGS := -Wall -Wextra -Werror -g
+
+# pass `make USE_AESD_CHAR_DEVICE=0` to use /var/tmp/aesdsocketdata
+USE_AESD_CHAR_DEVICE ?= 1
+CFLAGS := -Wall -Wextra -Werror -g -DUSE_AESD_CHAR_DEVICE=$(USE_AESD_CHAR_DEVICE)
 LIB := -lpthread -lrt
 LDFLAGS ?=
 INCLUDES :=
