@@ -1,0 +1,637 @@
+28688 execve("/usr/bin/bash", ["bash", "-c", "\ndevice=/dev/aesdchar\necho \"writ"...], 0x7ffe362500f8 /* 52 vars */) = 0
+28688 brk(NULL)                         = 0x5639383d2000
+28688 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffe8c2b4770) = -1 EINVAL (Invalid argument)
+28688 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+28688 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+28688 fstat(3, {st_mode=S_IFREG|0644, st_size=79868, ...}) = 0
+28688 mmap(NULL, 79868, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fe010c1a000
+28688 close(3)                          = 0
+28688 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libtinfo.so.6", O_RDONLY|O_CLOEXEC) = 3
+28688 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \347\0\0\0\0\0\0"..., 832) = 832
+28688 fstat(3, {st_mode=S_IFREG|0644, st_size=192032, ...}) = 0
+28688 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe010c18000
+28688 mmap(NULL, 194944, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe010be8000
+28688 mmap(0x7fe010bf6000, 61440, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe000) = 0x7fe010bf6000
+28688 mmap(0x7fe010c05000, 57344, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1d000) = 0x7fe010c05000
+28688 mmap(0x7fe010c13000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2a000) = 0x7fe010c13000
+28688 close(3)                          = 0
+28688 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+28688 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0 \22\0\0\0\0\0\0"..., 832) = 832
+28688 fstat(3, {st_mode=S_IFREG|0644, st_size=18848, ...}) = 0
+28688 mmap(NULL, 20752, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe010be2000
+28688 mmap(0x7fe010be3000, 8192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1000) = 0x7fe010be3000
+28688 mmap(0x7fe010be5000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7fe010be5000
+28688 mmap(0x7fe010be6000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x7fe010be6000
+28688 close(3)                          = 0
+28688 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+28688 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\300A\2\0\0\0\0\0"..., 832) = 832
+28688 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+28688 pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+28688 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\7\2C\n\357_\243\335\2449\206V>\237\374\304"..., 68, 880) = 68
+28688 fstat(3, {st_mode=S_IFREG|0755, st_size=2029592, ...}) = 0
+28688 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+28688 pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+28688 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\7\2C\n\357_\243\335\2449\206V>\237\374\304"..., 68, 880) = 68
+28688 mmap(NULL, 2037344, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fe0109f0000
+28688 mmap(0x7fe010a12000, 1540096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x22000) = 0x7fe010a12000
+28688 mmap(0x7fe010b8a000, 319488, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19a000) = 0x7fe010b8a000
+28688 mmap(0x7fe010bd8000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7fe010bd8000
+28688 mmap(0x7fe010bde000, 13920, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fe010bde000
+28688 close(3)                          = 0
+28688 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fe0109ed000
+28688 arch_prctl(ARCH_SET_FS, 0x7fe0109ed740) = 0
+28688 mprotect(0x7fe010bd8000, 16384, PROT_READ) = 0
+28688 mprotect(0x7fe010be6000, 4096, PROT_READ) = 0
+28688 mprotect(0x7fe010c13000, 16384, PROT_READ) = 0
+28688 mprotect(0x563917600000, 16384, PROT_READ) = 0
+28688 mprotect(0x7fe010c5b000, 4096, PROT_READ) = 0
+28688 munmap(0x7fe010c1a000, 79868)     = 0
+28688 openat(AT_FDCWD, "/dev/tty", O_RDWR|O_NONBLOCK) = 3
+28688 close(3)                          = 0
+28688 brk(NULL)                         = 0x5639383d2000
+28688 brk(0x5639383f3000)               = 0x5639383f3000
+28688 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+28688 fstat(3, {st_mode=S_IFREG|0644, st_size=5699248, ...}) = 0
+28688 mmap(NULL, 5699248, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fe01047d000
+28688 close(3)                          = 0
+28688 openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+28688 fstat(3, {st_mode=S_IFREG|0644, st_size=27002, ...}) = 0
+28688 mmap(NULL, 27002, PROT_READ, MAP_SHARED, 3, 0) = 0x7fe010c27000
+28688 close(3)                          = 0
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 rt_sigprocmask(SIG_BLOCK, NULL, [], 8) = 0
+28688 ioctl(-1, TIOCGPGRP, 0x7ffe8c2b45c4) = -1 EBADF (Bad file descriptor)
+28688 sysinfo({uptime=12093, loads=[96320, 87360, 82048], totalram=16765726720, freeram=10834313216, sharedram=133275648, bufferram=220930048, totalswap=2147479552, freeswap=2147479552, procs=828, totalhigh=0, freehigh=0, mem_unit=1}) = 0
+28688 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+28688 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+28688 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+28688 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+28688 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+28688 rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+28688 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigprocmask(SIG_BLOCK, NULL, [], 8) = 0
+28688 rt_sigaction(SIGQUIT, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 uname({sysname="Linux", nodename="Ubuntu", ...}) = 0
+28688 stat("/home/moshiur/Documents/Github/ecea5305/assignments-3-and-later-Mosh333/aesd-char-driver", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 stat(".", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 stat("/home", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+28688 stat("/home/moshiur", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+28688 stat("/home/moshiur/Documents", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+28688 stat("/home/moshiur/Documents/Github", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 stat("/home/moshiur/Documents/Github/ecea5305", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 stat("/home/moshiur/Documents/Github/ecea5305/assignments-3-and-later-Mosh333", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 stat("/home/moshiur/Documents/Github/ecea5305/assignments-3-and-later-Mosh333/aesd-char-driver", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 stat("/home/moshiur/Documents/Github/ecea5305/assignments-3-and-later-Mosh333", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 getpid()                          = 28688
+28688 getppid()                         = 28685
+28688 stat(".", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 stat("/usr/local/gcc-arm/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/bash", 0x7ffe8c2b4230) = -1 ENOENT (No such file or directory)
+28688 stat("/usr/local/sbin/bash", 0x7ffe8c2b4230) = -1 ENOENT (No such file or directory)
+28688 stat("/usr/local/bin/bash", 0x7ffe8c2b4230) = -1 ENOENT (No such file or directory)
+28688 stat("/usr/sbin/bash", 0x7ffe8c2b4230) = -1 ENOENT (No such file or directory)
+28688 stat("/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1183448, ...}) = 0
+28688 stat("/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1183448, ...}) = 0
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 access("/usr/bin/bash", X_OK)     = 0
+28688 stat("/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1183448, ...}) = 0
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 access("/usr/bin/bash", R_OK)     = 0
+28688 stat("/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1183448, ...}) = 0
+28688 stat("/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1183448, ...}) = 0
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 access("/usr/bin/bash", X_OK)     = 0
+28688 stat("/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1183448, ...}) = 0
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 access("/usr/bin/bash", R_OK)     = 0
+28688 getpid()                          = 28688
+28688 getpgrp()                         = 28685
+28688 ioctl(2, TIOCGPGRP, [28685])      = 0
+28688 rt_sigaction(SIGCHLD, {sa_handler=0x563917546a70, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 prlimit64(0, RLIMIT_NPROC, NULL, {rlim_cur=63587, rlim_max=63587}) = 0
+28688 rt_sigprocmask(SIG_BLOCK, NULL, [], 8) = 0
+28688 getpeername(0, 0x7ffe8c2b45c0, [16]) = -1 ENOTSOCK (Socket operation on non-socket)
+28688 rt_sigprocmask(SIG_BLOCK, NULL, [], 8) = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 fstat(1, {st_mode=S_IFCHR|0664, st_rdev=makedev(0xed, 0), ...}) = 0
+28688 ioctl(1, TCGETS, 0x7ffe8c2b3ab0)  = -1 ENOTTY (Inappropriate ioctl for device)
+28688 write(1, "write1\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write2\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write3\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write4\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write5\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write6\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write7\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write8\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write9\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write10\n", 8)          = 8
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 stat(".", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+28688 stat("/usr/local/gcc-arm/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/cat", 0x7ffe8c2b4120) = -1 ENOENT (No such file or directory)
+28688 stat("/usr/local/sbin/cat", 0x7ffe8c2b4120) = -1 ENOENT (No such file or directory)
+28688 stat("/usr/local/bin/cat", 0x7ffe8c2b4120) = -1 ENOENT (No such file or directory)
+28688 stat("/usr/sbin/cat", 0x7ffe8c2b4120) = -1 ENOENT (No such file or directory)
+28688 stat("/usr/bin/cat", {st_mode=S_IFREG|0755, st_size=43416, ...}) = 0
+28688 stat("/usr/bin/cat", {st_mode=S_IFREG|0755, st_size=43416, ...}) = 0
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 access("/usr/bin/cat", X_OK)      = 0
+28688 stat("/usr/bin/cat", {st_mode=S_IFREG|0755, st_size=43416, ...}) = 0
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 access("/usr/bin/cat", R_OK)      = 0
+28688 stat("/usr/bin/cat", {st_mode=S_IFREG|0755, st_size=43416, ...}) = 0
+28688 stat("/usr/bin/cat", {st_mode=S_IFREG|0755, st_size=43416, ...}) = 0
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 access("/usr/bin/cat", X_OK)      = 0
+28688 stat("/usr/bin/cat", {st_mode=S_IFREG|0755, st_size=43416, ...}) = 0
+28688 geteuid()                         = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 getgid()                          = 1000
+28688 access("/usr/bin/cat", R_OK)      = 0
+28688 rt_sigprocmask(SIG_BLOCK, [INT CHLD], [], 8) = 0
+28688 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fe0109eda10) = 28689
+28689 getpid( <unfinished ...>
+28688 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+28689 <... getpid resumed>)             = 28689
+28688 <... rt_sigprocmask resumed>NULL, 8) = 0
+28689 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+28688 rt_sigprocmask(SIG_BLOCK, [CHLD], [], 8) = 0
+28689 <... rt_sigprocmask resumed>NULL, 8) = 0
+28688 rt_sigprocmask(SIG_SETMASK, [],  <unfinished ...>
+28689 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090},  <unfinished ...>
+28688 <... rt_sigprocmask resumed>NULL, 8) = 0
+28689 <... rt_sigaction resumed>{sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigprocmask(SIG_BLOCK, [CHLD],  <unfinished ...>
+28689 rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090},  <unfinished ...>
+28688 <... rt_sigprocmask resumed>[], 8) = 0
+28689 <... rt_sigaction resumed>{sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigaction(SIGINT, {sa_handler=0x563917543450, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090},  <unfinished ...>
+28689 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090},  <unfinished ...>
+28688 <... rt_sigaction resumed>{sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28689 <... rt_sigaction resumed>{sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 wait4(-1,  <unfinished ...>
+28689 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28689 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28689 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, {sa_handler=0x563917546a70, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, 8) = 0
+28689 execve("/usr/bin/cat", ["cat", "/dev/aesdchar"], 0x5639383df500 /* 52 vars */) = 0
+28689 brk(NULL)                         = 0x5575121cc000
+28689 arch_prctl(0x3001 /* ARCH_??? */, 0x7fff46ac4250) = -1 EINVAL (Invalid argument)
+28689 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+28689 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+28689 fstat(3, {st_mode=S_IFREG|0644, st_size=79868, ...}) = 0
+28689 mmap(NULL, 79868, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fdb6c259000
+28689 close(3)                          = 0
+28689 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+28689 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\300A\2\0\0\0\0\0"..., 832) = 832
+28689 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+28689 pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+28689 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\7\2C\n\357_\243\335\2449\206V>\237\374\304"..., 68, 880) = 68
+28689 fstat(3, {st_mode=S_IFREG|0755, st_size=2029592, ...}) = 0
+28689 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fdb6c257000
+28689 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+28689 pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+28689 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\7\2C\n\357_\243\335\2449\206V>\237\374\304"..., 68, 880) = 68
+28689 mmap(NULL, 2037344, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fdb6c065000
+28689 mmap(0x7fdb6c087000, 1540096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x22000) = 0x7fdb6c087000
+28689 mmap(0x7fdb6c1ff000, 319488, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19a000) = 0x7fdb6c1ff000
+28689 mmap(0x7fdb6c24d000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7fdb6c24d000
+28689 mmap(0x7fdb6c253000, 13920, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fdb6c253000
+28689 close(3)                          = 0
+28689 arch_prctl(ARCH_SET_FS, 0x7fdb6c258580) = 0
+28689 mprotect(0x7fdb6c24d000, 16384, PROT_READ) = 0
+28689 mprotect(0x5574dcda9000, 4096, PROT_READ) = 0
+28689 mprotect(0x7fdb6c29a000, 4096, PROT_READ) = 0
+28689 munmap(0x7fdb6c259000, 79868)     = 0
+28689 brk(NULL)                         = 0x5575121cc000
+28689 brk(0x5575121ed000)               = 0x5575121ed000
+28689 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+28689 fstat(3, {st_mode=S_IFREG|0644, st_size=5699248, ...}) = 0
+28689 mmap(NULL, 5699248, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fdb6baf5000
+28689 close(3)                          = 0
+28689 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+28689 openat(AT_FDCWD, "/dev/aesdchar", O_RDONLY) = 3
+28689 fstat(3, {st_mode=S_IFCHR|0664, st_rdev=makedev(0xed, 0), ...}) = 0
+28689 fadvise64(3, 0, 0, POSIX_FADV_SEQUENTIAL) = 0
+28689 mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fdb6bad3000
+28689 read(3, "write1\n", 131072)       = 7
+28689 write(1, "write1\n", 7)           = 7
+28689 read(3, "write2\n", 131072)       = 7
+28689 write(1, "write2\n", 7)           = 7
+28689 read(3, "write3\n", 131072)       = 7
+28689 write(1, "write3\n", 7)           = 7
+28689 read(3, "write4\n", 131072)       = 7
+28689 write(1, "write4\n", 7)           = 7
+28689 read(3, "write5\n", 131072)       = 7
+28689 write(1, "write5\n", 7)           = 7
+28689 read(3, "write6\n", 131072)       = 7
+28689 write(1, "write6\n", 7)           = 7
+28689 read(3, "write7\n", 131072)       = 7
+28689 write(1, "write7\n", 7)           = 7
+28689 read(3, "write8\n", 131072)       = 7
+28689 write(1, "write8\n", 7)           = 7
+28689 read(3, "write9\n", 131072)       = 7
+28689 write(1, "write9\n", 7)           = 7
+28689 read(3, "write10\n", 131072)      = 8
+28689 write(1, "write10\n", 8)          = 8
+28689 read(3, "", 131072)               = 0
+28689 munmap(0x7fdb6bad3000, 139264)    = 0
+28689 close(3)                          = 0
+28689 close(1)                          = 0
+28689 close(2)                          = 0
+28689 exit_group(0)                     = ?
+28689 +++ exited with 0 +++
+28688 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 28689
+28688 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=0x563917543450, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 ioctl(2, TIOCGWINSZ, {ws_row=55, ws_col=135, ws_xpixel=0, ws_ypixel=0}) = 0
+28688 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+28688 getuid()                          = 1000
+28688 geteuid()                         = 1000
+28688 getgid()                          = 1000
+28688 getegid()                         = 1000
+28688 getuid()                          = 1000
+28688 geteuid()                         = 1000
+28688 getgid()                          = 1000
+28688 getegid()                         = 1000
+28688 stat("/home/moshiur/.terminfo", 0x5639383e5920) = -1 ENOENT (No such file or directory)
+28688 stat("/etc/terminfo", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+28688 stat("/lib/terminfo", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+28688 stat("/usr/share/terminfo", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+28688 access("/etc/terminfo/x/xterm-256color", R_OK) = -1 ENOENT (No such file or directory)
+28688 access("/lib/terminfo/x/xterm-256color", R_OK) = 0
+28688 openat(AT_FDCWD, "/lib/terminfo/x/xterm-256color", O_RDONLY) = 3
+28688 fstat(3, {st_mode=S_IFREG|0644, st_size=3503, ...}) = 0
+28688 read(3, "\36\2%\0&\0\17\0\235\1\356\5xterm-256color|xterm"..., 32768) = 3503
+28688 read(3, "", 28672)                = 0
+28688 close(3)                          = 0
+28688 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+28688 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+28688 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+28688 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+28688 ioctl(1, TIOCGWINSZ, {ws_row=55, ws_col=135, ws_xpixel=0, ws_ypixel=0}) = 0
+28688 ioctl(0, TIOCGWINSZ, {ws_row=55, ws_col=135, ws_xpixel=0, ws_ypixel=0}) = 0
+28688 brk(0x563938414000)               = 0x563938414000
+28688 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+28688 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=28689, si_uid=1000, si_status=0, si_utime=0, si_stime=1} ---
+28688 wait4(-1, 0x7ffe8c2b3d10, WNOHANG, NULL) = -1 ECHILD (No child processes)
+28688 rt_sigreturn({mask=[]})           = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "w", 1)                  = 1
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "r", 1)                  = 1
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "it", 2)                 = 2
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "e1\n", 3)               = 3
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write2\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write3\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write4\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write5\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write6\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write7\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write8\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "write9\n", 7)           = 7
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "wr", 2)                 = 2
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "it", 2)                 = 2
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(1, F_DUPFD, 10)             = 10
+28688 fcntl(1, F_GETFD)                 = 0
+28688 fcntl(10, F_SETFD, FD_CLOEXEC)    = 0
+28688 dup2(3, 1)                        = 1
+28688 close(3)                          = 0
+28688 write(1, "e10\n", 4)              = 4
+28688 dup2(10, 1)                       = 1
+28688 fcntl(10, F_GETFD)                = 0x1 (flags FD_CLOEXEC)
+28688 close(10)                         = 0
+28688 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, {sa_handler=0x563917546a70, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7fe010a33090}, 8) = 0
+28688 execve("/usr/bin/cat", ["cat", "/dev/aesdchar"], 0x5639383e37a0 /* 52 vars */) = 0
+28688 brk(NULL)                         = 0x560c6b64d000
+28688 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffd915e95d0) = -1 EINVAL (Invalid argument)
+28688 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+28688 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+28688 fstat(3, {st_mode=S_IFREG|0644, st_size=79868, ...}) = 0
+28688 mmap(NULL, 79868, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd7f317c000
+28688 close(3)                          = 0
+28688 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+28688 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\300A\2\0\0\0\0\0"..., 832) = 832
+28688 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+28688 pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+28688 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\7\2C\n\357_\243\335\2449\206V>\237\374\304"..., 68, 880) = 68
+28688 fstat(3, {st_mode=S_IFREG|0755, st_size=2029592, ...}) = 0
+28688 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd7f317a000
+28688 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+28688 pread64(3, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32, 848) = 32
+28688 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\7\2C\n\357_\243\335\2449\206V>\237\374\304"..., 68, 880) = 68
+28688 mmap(NULL, 2037344, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fd7f2f88000
+28688 mmap(0x7fd7f2faa000, 1540096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x22000) = 0x7fd7f2faa000
+28688 mmap(0x7fd7f3122000, 319488, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19a000) = 0x7fd7f3122000
+28688 mmap(0x7fd7f3170000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7fd7f3170000
+28688 mmap(0x7fd7f3176000, 13920, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fd7f3176000
+28688 close(3)                          = 0
+28688 arch_prctl(ARCH_SET_FS, 0x7fd7f317b580) = 0
+28688 mprotect(0x7fd7f3170000, 16384, PROT_READ) = 0
+28688 mprotect(0x560c60136000, 4096, PROT_READ) = 0
+28688 mprotect(0x7fd7f31bd000, 4096, PROT_READ) = 0
+28688 munmap(0x7fd7f317c000, 79868)     = 0
+28688 brk(NULL)                         = 0x560c6b64d000
+28688 brk(0x560c6b66e000)               = 0x560c6b66e000
+28688 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+28688 fstat(3, {st_mode=S_IFREG|0644, st_size=5699248, ...}) = 0
+28688 mmap(NULL, 5699248, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fd7f2a18000
+28688 close(3)                          = 0
+28688 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+28688 openat(AT_FDCWD, "/dev/aesdchar", O_RDONLY) = 3
+28688 fstat(3, {st_mode=S_IFCHR|0664, st_rdev=makedev(0xed, 0), ...}) = 0
+28688 fadvise64(3, 0, 0, POSIX_FADV_SEQUENTIAL) = 0
+28688 mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd7f29f6000
+28688 read(3, "write1\n", 131072)       = 7
+28688 write(1, "write1\n", 7)           = 7
+28688 read(3, "write2\n", 131072)       = 7
+28688 write(1, "write2\n", 7)           = 7
+28688 read(3, "write3\n", 131072)       = 7
+28688 write(1, "write3\n", 7)           = 7
+28688 read(3, "write4\n", 131072)       = 7
+28688 write(1, "write4\n", 7)           = 7
+28688 read(3, "write5\n", 131072)       = 7
+28688 write(1, "write5\n", 7)           = 7
+28688 read(3, "write6\n", 131072)       = 7
+28688 write(1, "write6\n", 7)           = 7
+28688 read(3, "write7\n", 131072)       = 7
+28688 write(1, "write7\n", 7)           = 7
+28688 read(3, "write8\n", 131072)       = 7
+28688 write(1, "write8\n", 7)           = 7
+28688 read(3, "write9\n", 131072)       = 7
+28688 write(1, "write9\n", 7)           = 7
+28688 read(3, "write10\n", 131072)      = 8
+28688 write(1, "write10\n", 8)          = 8
+28688 read(3, "", 131072)               = 0
+28688 munmap(0x7fd7f29f6000, 139264)    = 0
+28688 close(3)                          = 0
+28688 close(1)                          = 0
+28688 close(2)                          = 0
+28688 exit_group(0)                     = ?
+28688 +++ exited with 0 +++
