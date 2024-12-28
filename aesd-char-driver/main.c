@@ -260,10 +260,6 @@ void aesd_cleanup_module(void)
 
     // Destroy the mutex
     mutex_destroy(&aesd_device.lock);
-
-    // Delete the character device
-    PDEBUG("Deleting character device");
-    cdev_del(&aesd_device.cdev);
     
     unregister_chrdev_region(devno, 1);
 }
