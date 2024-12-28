@@ -132,7 +132,7 @@ void *process_connection_request(void* thread_arg) {
     ssize_t bytes_received = 0;
 
     // Open the file in append mode
-    printf("Opening file in append mode...\n");
+    // printf("Opening file in append mode...\n");
     int local_aesd_fd = open(FILE_PATH, O_CREAT | O_APPEND | O_RDWR, 0644);
     if (local_aesd_fd < 0) {
         syslog(LOG_ERR, "Failed to open file: %s", strerror(errno));
@@ -143,7 +143,7 @@ void *process_connection_request(void* thread_arg) {
     // Receive data from the client
     while ((bytes_received = recv(client_sockfd, recv_buffer, RECV_BUFFER_SIZE - 1, 0)) > 0) {
         recv_buffer[bytes_received] = '\0';  // Null-terminate the received data
-        printf("Received %ld bytes from client: %s\n", bytes_received, recv_buffer);
+        // printf("Received %ld bytes from client: %s\n", bytes_received, recv_buffer);
 
         // Find newline character
         char *newline = strchr(recv_buffer, '\n');
@@ -316,7 +316,7 @@ int main(int argc, char **argv)
     }
 
     #ifndef USE_AESD_CHAR_DEVICE
-        printf("Create timestamp!\n");
+        // printf("Create timestamp!\n");
         // Create the timestamp thread
         if (pthread_create(&timestamp_thread, NULL, timestamp_thread_func, NULL) != 0) {
             syslog(LOG_ERR, "Failed to create timestamp thread: %s", strerror(errno));
@@ -333,11 +333,11 @@ int main(int argc, char **argv)
     }
 
     syslog(LOG_INFO, "Server is listening on port %d", PORT);
-    printf("Server is listening on port %d\n", PORT);
+    // printf("Server is listening on port %d\n", PORT);
 
     while(program_running){
         // Accept an incoming connection
-        printf("Accepting incoming connection\n");
+        // printf("Accepting incoming connection\n");
         client_addr_size = sizeof(client_addr);
         int client_sockfd = accept(server_sockfd, (struct sockaddr *)&client_addr, &client_addr_size);
         if (client_sockfd < 0) {
@@ -350,7 +350,7 @@ int main(int argc, char **argv)
         char client_ip[INET_ADDRSTRLEN];
         inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, INET_ADDRSTRLEN);
         syslog(LOG_INFO, "Accepted connection from %s", client_ip);
-        printf("Server: got connection from %s\n", client_ip);
+        // printf("Server: got connection from %s\n", client_ip);
 
         // Allocate memory for thread data
         struct thread_node_data *node = malloc(sizeof(struct thread_node_data));
@@ -366,7 +366,7 @@ int main(int argc, char **argv)
         // Insert the new thread node into the singly linked list
         SLIST_INSERT_HEAD(&thread_list_head, node, conn_node);
 
-        printf("About to create new thread!\n");
+        // printf("About to create new thread!\n");
         // Create a new thread to handle the connection
         if (pthread_create(&node->thread_id, NULL, process_connection_request, (void*)node) != 0) {
             syslog(LOG_ERR, "Failed to create thread: %s", strerror(errno));
@@ -374,7 +374,7 @@ int main(int argc, char **argv)
             free(node);
             continue;
         }
-        printf("Created new thread!\n");
+        // printf("Created new thread!\n");
 
 
     }
