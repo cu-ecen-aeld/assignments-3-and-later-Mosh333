@@ -172,12 +172,51 @@ unlock_and_return:
     return retval;
 }
 
+// function signature borrowed from https://docs.kernel.org/filesystems/vfs.html
+loff_t aesd_llseek(struct file *filp, loff_t offset, int whence){
+    
+    struct aesd_dev *dev = filp->private_data; // Get the device structure
+    loff_t result;
+    size_t total_size = 0;
+    int index;
+    struct aesd_buffer_entry *entryptr;
+
+    PDEBUG("llseek");
+
+    // Acquire the mutex lock
+    if (mutex_lock_interruptible(&dev->lock)) {
+        return -ERESTARTSYS;
+    }
+
+    // Compute the total size of the circular buffer
+    AESD_CIRCULAR_BUFFER_FOREACH(entryptr, &dev->aesd_circular_buffer, index)
+    {
+        if (entryptr->buffptr != NULL) // Only consider valid entries
+        {
+            total_size += entryptr->size; // Add the size of the entry
+        }
+    }
+
+    // Use fixed_size_llseek to calculate the new position - option 2 from the Assignment 9 Overview Video
+    // "Add your own llseek function, with locking and logging, but use fixed_size_llseek for logic."
+    result = fixed_size_llseek(filp, offset, whence, total_size);
+
+    // Log the result
+    PDEBUG("llseek: offset=%lld whence=%d result=%lld\n", offset, whence, result);
+
+    // Release the mutex lock
+    mutex_unlock(&dev->lock);
+
+    return result;
+}
+
 struct file_operations aesd_fops = {
     .owner =    THIS_MODULE,
     .read =     aesd_read,
     .write =    aesd_write,
     .open =     aesd_open,
     .release =  aesd_release,
+    .llseek =   aesd_llseek,
 };
 
 static int aesd_setup_cdev(struct aesd_dev *dev)
