@@ -144,41 +144,46 @@ void *process_connection_request(void* thread_arg) {
     // Receive data from the client
     while ((bytes_received = recv(client_sockfd, recv_buffer, RECV_BUFFER_SIZE - 1, 0)) > 0) {
         recv_buffer[bytes_received] = '\0';  // Null-terminate the received data
-        const char *ioc_cmd = "AESDCHAR_IOCSEEKTO:";
         // printf("Received %ld bytes from client: %s\n", bytes_received, recv_buffer);
 
         // Find newline character
         char *newline = strchr(recv_buffer, '\n');
-        pthread_mutex_lock(&file_mutex);
+        
 
-        syslog(LOG_INFO, "Received command: %s", recv_buffer);
-        if (strncmp(recv_buffer, ioc_cmd, strlen(ioc_cmd)) == 0) {
-            // Handle IOCTL Seek Command
-            struct aesd_seekto seekto;
-            if (sscanf(recv_buffer + strlen(ioc_cmd), "%d,%d", &seekto.write_cmd, &seekto.write_cmd_offset) == 2) {
-                if (ioctl(local_aesd_fd, AESDCHAR_IOCSEEKTO, &seekto) < 0) {
-                    syslog(LOG_ERR, "IOCTL failed: %s", strerror(errno));
-                } else {
-                    syslog(LOG_INFO, "IOCTL Seek Command executed successfully");
-                }
-            } else {
-                syslog(LOG_ERR, "Invalid IOCTL command format: %s", recv_buffer);
+        if (newline) {
+            pthread_mutex_lock(&file_mutex);
+
+            unsigned int write_cmd;
+            unsigned int offset;
+            
+            // Use sscanf to extract the prefix and the integers X and Y
+            if (sscanf(recv_buffer, "AESDCHAR_IOCSEEKTO:%u,%u", &write_cmd, &offset) == 2)
+            {
+                // Above checks that 1) both X and Y are successfully scanned and 2) the prefix matches "AESDCHAR_IOCSEEKTO:X,Y"
+
+                struct aesd_seekto seekto;
+                seekto.write_cmd = write_cmd;
+                seekto.write_cmd_offset = offset;
+
+                ioctl(local_aesd_fd, AESDCHAR_IOCSEEKTO, &seekto);
             }
-        } else {
-            if (newline) {
+            else
+            {
                 // Write data up to and including the newline to the file
                 if (write(local_aesd_fd, recv_buffer, newline - recv_buffer + 1) < 0) {
                     syslog(LOG_ERR, "Error writing to file: %s", strerror(errno));
                 }
-                pthread_mutex_unlock(&file_mutex);
-                break;  // Exit loop after handling the packet with newline
-            } else {
-                // Write entire buffer if no newline is found
-                if (write(local_aesd_fd, recv_buffer, bytes_received) < 0) {
-                    syslog(LOG_ERR, "Error writing to file: %s", strerror(errno));
-                }
-                pthread_mutex_unlock(&file_mutex);
+                // Send the file contents back to the client
+                lseek(local_aesd_fd, 0, SEEK_SET);  // Seek to the start of the file
             }
+            pthread_mutex_unlock(&file_mutex);
+            break;  // Exit loop after handling the packet with newline
+        } else {
+            // Write entire buffer if no newline is found
+            if (write(local_aesd_fd, recv_buffer, bytes_received) < 0) {
+                syslog(LOG_ERR, "Error writing to file: %s", strerror(errno));
+            }
+            pthread_mutex_unlock(&file_mutex);
         }
     }
 
@@ -186,8 +191,7 @@ void *process_connection_request(void* thread_arg) {
         syslog(LOG_ERR, "Error receiving data: %s", strerror(errno));
     }
 
-    // Send the file contents back to the client
-    lseek(local_aesd_fd, 0, SEEK_SET);  // Seek to the start of the file
+    
     while ((bytes_received = read(local_aesd_fd, recv_buffer, RECV_BUFFER_SIZE)) > 0) {
         if (send(client_sockfd, recv_buffer, bytes_received, 0) < 0) {
             syslog(LOG_ERR, "Error sending data: %s", strerror(errno));

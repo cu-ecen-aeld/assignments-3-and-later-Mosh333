@@ -211,8 +211,8 @@ loff_t aesd_llseek(struct file *filp, loff_t offset, int whence){
     return result;
 }
 
-long aesd_ioctl(struct file *file, unsigned int cmd, unsigned long arg){
-    struct aesd_dev *dev = file->private_data; // Access device structure
+long aesd_ioctl(struct file *filp, unsigned int cmd, unsigned long arg){
+    struct aesd_dev *dev = filp->private_data; // Access device structure
     struct aesd_seekto seekto; //the type of seek to be performed on the aesdchar driver from the userspace (via IOCTL)
     long result = 0;
     loff_t new_pos = 0;
@@ -255,7 +255,7 @@ long aesd_ioctl(struct file *file, unsigned int cmd, unsigned long arg){
     new_pos = cmd_offset + seekto.write_cmd_offset;
 
     // Update the file pointer
-    file->f_pos = new_pos;
+    filp->f_pos = new_pos;
 
 unlock_and_return:
     mutex_unlock(&dev->lock);  // Release the lock
